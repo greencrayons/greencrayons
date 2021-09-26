@@ -2,38 +2,45 @@
 
 
 const bubble = (array) => {
-	array = [array,0]
 
-	let sort = () => {
+ // array [input unsorted array of integers, index]
+ array = [array, 0]
 
-		let switchit = () => {
-		array[0].splice(array[1]+2,0,array[0][array[1]])
-		array[0].splice(array[1],1)
-		array[1] = 0
-		sort()
-		}
+ let sort = () => {
 
-		let update = () => {
-		array[1]++
-		sort()
-		}
+	// switchit transposes the current index with the next index
+	let switchit = () => {
+	array[0].splice(array[1] + 2, 0, array[0][array[1]])
+	array[0].splice(array[1], 1)
+	array[1] = 0
+	sort()
+	};
 
-
-		console.log(array)
-		if(array[0].length == array[1]+1){
-		return
-		}
-
-		array[0][array[1]] > array[0][array[1]+1] ? update():switchit()
+  // update() increments the current iteration index then calls sort() recursively
+	let update = () => {
+	array[1]++
+	sort()
+	};
 
 
+	console.log(array)
+    // if the index reaches the end of the array escape sort()
+	if(array[0].length == array[1] + 1){
+	return
 	}
 
-
-	sort()
-	return array[0]
-
-}
+    // compare the current index with the next index and call update() if true, else call switchit()
+	array[0][array[1]] > array[0][array[1] + 1] ? update():switchit();
 
 
-bubble([1,2,3,4,8])
+ };
+
+ // inital sort() call
+ sort()
+ // return sorted descending array
+ return array[0]
+
+};
+
+
+bubble([1,2,3,4,8,12]);
