@@ -16,7 +16,7 @@ const bubble = (array) => {
 	sort()
 	};
 
-  // update() increments the current iteration index then calls sort() recursively
+        // update() increments the current iteration index then calls sort() recursively
 	let update = () => {
 	array[1]++
 	sort()
@@ -24,12 +24,12 @@ const bubble = (array) => {
 
 
 	console.log(array)
-    // if the index reaches the end of the array escape sort()
+        // if the index reaches the end of the array escape sort()
 	if(array[0].length == array[1] + 1){
 	return
 	}
 
-    // compare the current index with the next index and call update() if true, else call switchit()
+        // compare the current index with the next index and call update() if true, else call switchit()
 	array[0][array[1]] > array[0][array[1] + 1] ? update():switchit();
 
 
